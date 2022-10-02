@@ -6,8 +6,8 @@ import datetime
 import plotly.express as px
 
 # read and extract longitude, latitude, altitude, and e_density from ISS data
-df = pd.read_csv("ISS_SP_FPMU_20220912.csv")
-
+df = pd.read_csv("ISS_SP_FPMU_20220912_20220913_20220914_half.csv")
+# df = df[df["SUNLIGHT_%"] != 0]
 latitude = df.iloc[:,1].values   #float64
 longitude = df.iloc[:,2].values
 altitude = df.iloc[:,3].values
@@ -36,6 +36,6 @@ fig = go.Figure(go.Scattergeo(
 ))
 fig.update_geos(projection_type="orthographic")
 
-fig.update_layout(width= 800, height=800, margin={"r":0,"t":0,"l":0,"b":0})
-# fig.write_html("index.html")
+fig.update_layout(width= 1000, height=600, margin={"r":0,"t":0,"l":0,"b":0})
+fig.write_html("index.html")
 fig.show()
