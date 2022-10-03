@@ -1,13 +1,17 @@
-### SPACE CADYS PRESENTS
+### SPACE C.A.D.Y.S. PRESENTS
 # Imaging the Ionosphere through Electron Density
 #### By Austen O'Shaughnessy, Conor Brennan, Divya Chari, Satyam Priyadarshi, Yuka Ma
+#### Vancouver, Canada
 
-This python script takes the ISS FPMU Summary Plasma Densities and Temperatures data from https://cdaweb.gsfc.nasa.gov/cgi-bin/eval1.cgi. We downloaded the List Data as CSV files.
+This Github repository contains our team's work, code, and webpage for the 2022 NASA International Space Apps Challenge on "Calling All Radio Enthusiasts!". 
 
-We retrieve the electron density based on the location and output a 3D image of the Earth and its surrounding ionosphere (e- density) on a color scale using the plotly.graph_objects module.
+For detailed project submission information, please visit [the official website](https://2022.spaceappschallenge.org/challenges/2022-challenges/radio-enthusiasts/teams/space-cadys/project).
 
-The map_ionosphere.py script does the following to create the output image
+Our repository is split into two directories: `/docs`, and `/netCDFwork`
 
-1. Extract longitude, latitude, altitude, and e- density from the raw database
+For our Github webpage, please visit: https://yukama18.github.io/spacecadys/
 
-2. Using plotly and a color gradient scale on e-density, create plot.
+1. `/docs`: This directory contains a python script (`plot_ionosphere.py`) taking 5 half-days (0:00 GMT to 12:00 GMT) worth of data from the [ISS FPMU Summary Plasma Densities and Temperatures ](https://cdaweb.gsfc.nasa.gov/cgi-bin/eval1.cgi). The organized data (ending in `.csv`)) can be found in the same directory. The script outputs a `index.html` file containing an interactive 3D globe that graphs the ionosphere (based on electron density[m-3]) in a 5-day snapshot. Here is a quick gif to showcase its effects:
+![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif)
+
+2. `/netCDFwork`: In an attempt to quickly visualize the large amounts of ionosphere/electron density data (upwards of 130,000 data points), we created a netCDF4 file from the .csv. The python code was written in an ArcGIS Pro notebook: `create_netCDF.aprx`. The outputted netCDF4 file is also included: `edensity_4day.nc`. Again, the relevant data is collected from the same ISS website from above and can be found in the directory as a `.csv` file. Note that we only used 4 days of data here.
